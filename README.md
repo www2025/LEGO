@@ -12,6 +12,6 @@ This code requires the following:
 ## Usage
 
 ```
-python train_LEGO.py
+python ./LEGO/train_LEGO.py
 ```
 
