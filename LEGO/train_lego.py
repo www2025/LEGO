@@ -35,21 +35,11 @@ def train(args):
 
     trans = Compose(trans)
 
-    if dataset_str == 'wiki-CS':
-        dataset = WikiCS(root='pyg_data/wiki-CS', transform=trans)
-    elif dataset_str == 'LastFMAsia':
+    if dataset_str == 'LastFMAsia':
         dataset = LastFMAsia(root='pyg_data/LastFMAsia', transform=trans)
-    elif dataset_str == 'NELL':
-        dataset = NELL(root='pyg_data/NELL', transform=trans)
     elif dataset_str == 'Amazon':
         dataset_name = args.dataset.split('_')[1]
         dataset = Amazon(root='pyg_data/Amazon', name=dataset_name, transform=trans)
-    elif dataset_str == 'Coauthor':
-        dataset_name = args.dataset.split('_')[1]
-        dataset = Coauthor(root='pyg_data/Coauthor', name=dataset_name, transform=trans)
-    elif dataset_str == 'CitationFull':
-        dataset_name = args.dataset.split('_')[1]
-        dataset = CitationFull(root='pyg_data/CitationFull', name=dataset_name, transform=trans)
     elif dataset_str == 'GNNBenchmark':
         dataset_name = args.dataset.split('_')[1]
         dataset = GNNBenchmarkDataset(root='pyg_data/GNNBenchmark', name=dataset_name, transform=trans)
@@ -396,8 +386,6 @@ if __name__ == '__main__':
     # parser.add_argument('--ID_classes', default=[1, 2, 6, 7, 8], type=list) 
     # parser.add_argument('--dataset', default="Amazon_photo", type=str) 
     # parser.add_argument('--ID_classes', default=[0, 2, 3, 4, 5], type=list)
-    # parser.add_argument('--dataset', default="wiki-CS", type=str) # default:
-    # parser.add_argument('--ID_classes', default=[1, 3, 6, 7, 8, 9], type=list)
     parser.add_argument('--dataset', default="LastFMAsia", type=str) # default:
     parser.add_argument('--ID_classes', default=[0, 6, 7, 8, 11, 13, 14, 15, 16], type=list)
     parser.add_argument('--splits', default=[5, 15, 10, 500], type=list)
